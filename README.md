@@ -1,0 +1,2 @@
+# DISCUSSION3CSC262
+Different Arrays
