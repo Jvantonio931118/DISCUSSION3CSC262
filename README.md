@@ -1,54 +1,7 @@
-import java.util.ArrayList;
+Arrays and ArrayLists are both ways to store data in Java, but they work kind of like two very different types of storage containers. An array is like buying a muffin tin, you pick one with a certain number of cups (slots), and that’s all you get. If you decide later that you actually need to make more muffins, too bad, you can’t magically add extra cups. The size is locked in from the moment you create it.
 
-public class Main {
+An ArrayList, on the other hand, is more like a stretchy lunchbox that expands whenever you need more room. You don’t have to decide the size upfront. If you keep tossing more items into it, it just grows with you. So while an array with 7 slots will throw an error if you try to squeeze in an 8th item, an ArrayList will happily make room for it.
 
-    public static void main(String[] args) {
+Accessing values also works differently. With an array, you grab items using the classic index brackets [], like pulling something out of a specific cup in the muffin tin. With an ArrayList, you use the get() method, which is more like saying, “Hey, give me the item in position 3.” Both are straightforward, but the ArrayList version comes with extra tools that make it easier to add, remove, and shift things around.
 
-        // ===== Example 1: Array =====
-        // Arrays have a FIXED SIZE decided at creation.
-        int[] examScoresArray = new int[3];
-        examScoresArray[0] = 85;
-        examScoresArray[1] = 90;
-        examScoresArray[2] = 95;
-
-        System.out.println("Array contents:");
-        for (int i = 0; i < examScoresArray.length; i++) {
-            System.out.println("Index " + i + ": " + examScoresArray[i]);
-        }
-
-        // If we want to "add" another score, we CANNOT resize the array.
-        // We would need to create a new, larger array and copy the values.
-        // This shows that arrays are not convenient when the size changes often.
-
-
-        // ===== Example 2: ArrayList =====
-        // ArrayList is a RESIZABLE collection backed by an internal array.
-        // It can only store objects, so we use Integer instead of int.
-        ArrayList<Integer> examScoresList = new ArrayList<>();
-
-        // We can add elements without worrying about capacity.
-        examScoresList.add(85);
-        examScoresList.add(90);
-        examScoresList.add(95);
-
-        // Adding another element is simple; ArrayList resizes itself.
-        examScoresList.add(100);
-
-        System.out.println("\nArrayList contents:");
-        for (int i = 0; i < examScoresList.size(); i++) {
-            System.out.println("Index " + i + ": " + examScoresList.get(i));
-        }
-
-        // We can also remove elements by index, which shifts the remaining items.
-        examScoresList.remove(1); // removes the value 90
-        System.out.println("\nArrayList after removing index 1:");
-        for (int i = 0; i < examScoresList.size(); i++) {
-            System.out.println("Index " + i + ": " + examScoresList.get(i));
-        }
-
-        // ===== Key Differences Highlighted in Code =====
-        // 1. Array: fixed length, can store primitives, no built-in add/remove methods.
-        // 2. ArrayList: dynamic size, stores objects (Integer), has helpful methods like add(), remove(), size().
-        // 3. Syntax: array uses [], ArrayList uses methods and generics.
-    }
-}
+Overall, arrays are great when you know exactly how many items you need to store ahead of time. ArrayLists are the go-to choice when your storage needs might change and you want something flexible that adjusts itself automatically.
